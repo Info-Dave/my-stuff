@@ -54,20 +54,16 @@ FizzBuzz.prototype.run = function(max) {
 		for (this.currentNumber = 1; this.currentNumber <= max; this.currentNumber++) {
 			if (this.div3() && this.div5()) {
 				answer = 'FizzBuzz';
+			} else if (this.div3()) {
+				answer = 'Fizz';
+			} else if (this.div5()){
+				answer = 'Buzz';
 			} else {
-				if (this.div3()) {
-					answer = 'Fizz';
-				} else {
-					if (this.div5()){
-						answer = 'Buzz';
-					} else {
-						answer = this.currentNumber;
-					}
-				}
+				answer = this.currentNumber;
 			}
 			output.innerHTML = output.innerHTML + answer + '<br />';
 			json = json + '"' + answer + '"';
-			if (this.currentNumber != max) {//We don't wan a comma after the last element.
+			if (this.currentNumber != max) {//We don't want a comma after the last element.
 				json = json + ', ';
 			}
 		}
